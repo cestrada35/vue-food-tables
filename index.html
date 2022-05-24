@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Tables</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+	
+    <!-- ADDING VUE AND NECESSARY COMPONENTS TO PROJECT -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="./js/vueApp.js" defer></script>
+</head>
+<body>
+    <div id="app">
+ 	<h1>Data Tables (built with Vue Framework)</h1>
+     <!-- <input type="search" placeholder="Enter your search here"> -->
+    <table>
+        <thead>
+            <tr>
+            <th scope="col" v-on:click="sort('name')">Dessert</th>
+            <th scope="col" v-on:click="sort('cals')">Calories</th>
+            <th scope="col" v-on:click="sort('fats')">Fat (g)</th>
+            <th scope="col" v-on:click="sort('carbs')">Carbs (g)</th>
+            <th scope="col" v-on:click="sort('protein')">Protein (g)</th>
+            <th scope="col" v-on:click="sort('iron')">Iron (g)</th>
+            <th scope="col">Select Row</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="stat in sortedStats">
+                <td>{{stat.name}}</td>
+                <td>{{stat.cals}}</td>
+                <td>{{stat.fats}}</td>
+                <td>{{stat.carbs}}</td>
+                <td>{{stat.protein}}</td>
+                <td>{{stat.iron}}</td>
+                <td><img src="./icons/highlight.svg"/></td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <p id="pages">
+        <button v-on:click="prevPage">Previous</button>
+        <button v-on:click="nextPage">Next</button> 
+        <div id="box">Page {{currentPage}} of 2</div>
+    </p>
+    </div>
+
+</body>
+</html>
+
+<!-- SAY WE COULDNT' GET TEMPLATING DOWN -->
